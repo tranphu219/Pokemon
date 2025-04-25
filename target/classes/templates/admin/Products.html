@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{admin/layout :: head}">
+    <title>Products</title>
+</head>
+<body>
+<div th:replace="~{admin/layout :: layout(pageTitle='Products')}">
+    <div th:fragment="content">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Product Management</h1>
+            <a th:href="@{/admin/products/add}" class="btn btn-primary">
+                <i class="fas fa-plus-circle"></i> Add Product
+            </a>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search products...">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover table-striped">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="product : ${products}">
+                    <td>
+                        <img th:src="@{${product.image_url}}"
+                             class="img-thumbnail"
+                             style="width: 60px; height: 60px; object-fit: cover;">
+                    </td>
+                    <td th:text="${product.name}">Pikachu VMAX</td>
+                    <td th:text="${product.category.name}">Rare Cards</td>
+                    <td th:text="${'$' + #numbers.formatDecimal(product.price, 1, 2)}">$49.99</td>
+                    <td th:text="${product.stock_quantity}">15</td>
+                    <td>
+                        <span th:if="${product.is_active}" class="badge badge-success">Active</span>
+                        <span th:unless="${product.is_active}" class="badge badge-secondary">Inactive</span>
+                    </td>
+                    <td>
+                        <a th:href="@{/admin/products/edit/{id}(id=${product.product_id})}"
+                           class="btn btn-sm btn-info">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a th:href="@{/admin/products/delete/{id}(id=${product.product_id})}"
+                           class="btn btn-sm btn-danger">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

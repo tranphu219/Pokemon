@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon - Shop for handmade, vintage, custom, and unique gifts</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/dist/css/home.css}" />
+</head>
+<body>
+<header th:replace="fragments/header :: header"></header>
+
+<!-- Hero Banner -->
+<div class="container-fluid py-4" id="banner">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6" id="ok">
+                <h1 style="font-weight: 700; font-size: 2.8rem;">Find things you'll love. Support independent sellers.</h1>
+                <p class="lead">Only on Pokemon. Shop millions of creative and unique items.</p>
+                <button class="btn btn-primary" style="background-color: #F56400; border: none; padding: 10px 25px;">Start shopping</button>
+            </div>
+            <div class="col-md-6">
+                <img src="/dist/image/ok.png" alt="Etsy products" class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Categories Section -->
+<div class="container featured-section">
+    <h2 class="section-title">Shop by Category</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-3 col-6">
+            <div class="category-card">
+                <img src="/dist/image/ok.png" alt="Jewelry" class="img-fluid category-img">
+                <h5 class="category-title">Jewelry</h5>
+            </div>
+        </div>
+
+<!--        ảnh toàn 300x200-->
+
+        <div class="col-md-3 col-6">
+            <div class="category-card">
+                <img src="/dist/image/ok.png" alt="Home & Living" class="img-fluid category-img">
+                <h5 class="category-title">Home & Living</h5>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="category-card">
+                <img src="/dist/image/ok.png" alt="Clothing" class="img-fluid category-img">
+                <h5 class="category-title">Clothing</h5>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="category-card">
+                <img src="/dist/image/ok.png" alt="Wedding" class="img-fluid category-img">
+                <h5 class="category-title">Wedding</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Featured Products -->
+<!-- Featured Products -->
+<div class="container featured-section">
+    <h2 class="section-title">Trending Now</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-3 col-6">
+            <div class="product-card">
+                <img src="/dist/image/ok.png" alt="Product 1" class="img-fluid product-img" style="height: 200px;">
+                <div class="p-2">
+                    <div class="product-title">Handmade Ceramic Mug</div>
+                    <div class="product-price">$28.50</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-6">
+            <div class="product-card">
+                <img src="/dist/image/ok.png" alt="Product 2" class="img-fluid product-img" style="height: 200px;">
+                <div class="p-2">
+                    <div class="product-title">Personalized Necklace</div>
+                    <div class="product-price">$45.00</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-6">
+            <div class="product-card">
+                <img src="/dist/image/ok.png" alt="Product 3" class="img-fluid product-img" style="height: 200px;">
+                <div class="p-2">
+                    <div class="product-title">Macrame Wall Decor</div>
+                    <div class="product-price">$65.00</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-6">
+            <div class="product-card">
+                <img src="/dist/image/ok.png" alt="Product 4" class="img-fluid product-img" style="height: 200px;">
+                <div class="p-2">
+                    <div class="product-title">Digital Portrait</div>
+                    <div class="product-price">$35.00</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-6">
+            <div class="product-card">
+                <img src="/dist/image/ok.png" alt="Product 5" class="img-fluid product-img" style="height: 200px;">
+                <div class="p-2">
+                    <div class="product-title">Leather Crossbody Bag</div>
+                    <div class="product-price">$78.00</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-6">
+            <div class="product-card">
+                <img src="/dist/image/ok.png" alt="Product 6" class="img-fluid product-img" style="height: 200px;">
+                <div class="p-2">
+                    <div class="product-title">Handmade Wooden Clock</div>
+                    <div class="product-price">$52.00</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-6">
+            <div class="product-card">
+                <img src="/dist/image/ok.png" alt="Product 7" class="img-fluid product-img" style="height: 200px;">
+                <div class="p-2">
+                    <div class="product-title">Vintage Earrings Set</div>
+                    <div class="product-price">$18.90</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- text-->
+<div class="container-fluid py-4" id="banner2">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6" id="ok1">
+                <h1 style="font-weight: 700; font-size: 2.8rem;">Find things you'll love. Support independent sellers.</h1>
+                <p class="lead">Only on Pokemon. Shop millions of creative and unique items.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="/dist/image/admin.jpg" alt="Etsy products" class="imgtext">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Gifts Section -->
+<div class="container featured-section">
+    <h2 class="section-title">Gifts for Every Occasion</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+
+<!--            ảnh này 400x300-->
+
+
+            <div class="card mb-4">
+                <img src="/dist/image/ok.png" class="card-img-top" alt="Birthday Gifts">
+                <div class="card-body">
+                    <h5 class="card-title">Birthday Gifts</h5>
+                    <p class="card-text">Find the perfect present for everyone on your list.</p>
+                    <a href="#" class="btn btn-outline-primary">Shop Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="/dist/image/ok.png" class="card-img-top" alt="Anniversary Gifts">
+                <div class="card-body">
+                    <h5 class="card-title">Anniversary Gifts</h5>
+                    <p class="card-text">Celebrate love with unique and meaningful presents.</p>
+                    <a href="#" class="btn btn-outline-primary">Shop Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="/dist/image/ok.png" class="card-img-top" alt="Wedding Gifts">
+                <div class="card-body">
+                    <h5 class="card-title">Wedding Gifts</h5>
+                    <p class="card-text">Thoughtful gifts for the happy couple.</p>
+                    <a href="#" class="btn btn-outline-primary">Shop Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer th:replace="fragments/footer :: footer"></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

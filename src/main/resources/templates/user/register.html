@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <link rel="stylesheet" th:href="@{/dist/css/login_register.css}" />
+</head>
+<body>
+
+<div class="container-box">
+  <div class="card-box">
+    <div class="form-left">
+      <h2>Join Us 🎉</h2>
+      <p>Fill in the details to create your account.</p>
+      <form th:action="@{/user/registerSave}" th:object="${usersEntity}" method="post">
+        <input type="text" class="form-control" th:field="*{name}" placeholder="Full Name" required>
+        <input type="email" class="form-control" th:field="*{email}" placeholder="Email" required>
+        <input type="password" class="form-control" th:field="*{password}" placeholder="Password" required>
+        <input type="text" class="form-control" th:field="*{phone}" placeholder="Phone Number" required>
+        <button type="submit" class="btn btn-custom">Register</button>
+      </form>
+      <div class="form-footer">
+        <p>Already have an account? <a th:href="@{/user/login}">Login</a></p>
+      </div>
+    </div>
+    <div class="form-right"></div>
+  </div>
+</div>
+
+</body>
+</html>

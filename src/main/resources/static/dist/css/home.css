@@ -1,0 +1,296 @@
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+.etsy-logo {
+    color: #F56400;
+    font-size: 32px;
+    font-weight: bold;
+    font-family: 'Georgia', serif;
+}
+
+
+/* Tăng kích thước icon */
+.nav-links i {
+    font-size: 20px; /* hoặc dùng fa-lg class */
+    margin-right: 5px;
+}
+
+/* Canh giữa icon và chữ */
+.nav-links {
+    color: #333;
+    text-decoration: none;
+    margin: 0 8px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+}
+.nav-links:hover {
+    color: #F56400;
+}
+
+.secondary-nav {
+    background-color: white;
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+#banner {
+    background-image: url("/dist/image/banner.png");
+    background-size: cover;
+    background-position: center;
+}
+#banner2{
+    margin: 30px 0px;
+    background-image: url("/dist/image/vintegewhite.jpg");
+    background-size: cover;
+    background-position: center;
+}
+#ok{
+    color: whitesmoke;
+}#ok1{
+    color: #1e1e1e;
+}
+ .imgtext{
+     height: 250px;
+     width: 500px;
+ }
+.category-card {
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+.category-card:hover {
+    transform: translateY(-5px);
+}
+.category-img {
+    height: 200px;
+    object-fit: cover;
+    margin: 0 auto;
+}
+.category-title {
+    font-weight: 600;
+    color: #333;
+    margin-top: 10px;
+}
+.featured-section {
+    text-align: center;
+}
+.section-title {
+    font-weight: 700;
+    margin-bottom: 25px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: #333;
+    color: #F56400;
+}
+.product-card {
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.product-card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.product-img {
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+    margin: 0 auto;
+}
+.product-title {
+    font-size: 14px;
+    color: #333;
+    margin-top: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.product-price {
+    font-weight: 600;
+    color: #222;
+}
+.footer {
+    background-color: #2A2A2A;
+    color: white;
+    padding: 40px 0;
+    margin-top: 50px;
+    text-align: center;
+}
+.footer-title {
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+.footer-link {
+    color: #ddd;
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    font-size: 14px;
+}
+.footer-link:hover {
+    color: white;
+    text-decoration: underline;
+}
+.newsletter-input {
+    border-radius: 4px 0 0 4px;
+    border: none;
+    padding: 10px;
+    width: 70%;
+}
+.newsletter-btn {
+    background-color: #F56400;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    padding: 10px 15px;
+}
+.centered-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container a{
+    text-decoration: none;
+}
+
+#icon a{
+    text-decoration: none;
+}
+
+.card {
+    text-align: center;
+}
+
+/* Kiểu dáng mặc định cho nút Categories */
+.butonphu {
+    margin-left: 10px;
+    color: #333; /* Màu chữ đen */
+    font-size: 14px; /* Chữ nhỏ hơn */
+    padding: 8px 16px; /* Khoảng cách padding */
+    background-color: transparent; /* Nền trong suốt */
+    border: none; /* Bỏ viền */
+    border-radius: 30px; /* Bo tròn nút */
+    font-weight: 500; /* Độ đậm của chữ */
+    transition: all 0.3s ease; /* Hiệu ứng chuyển tiếp */
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Thay đổi màu chữ khi hover vào */
+.butonphu:hover {
+    color: #F56400; /* Màu chữ đỏ cam khi hover */
+    background-color: #dddddd; /* Màu nền xám nhạt khi hover */
+    cursor: pointer; /* Con trỏ chuột thay đổi */
+}
+
+/* Thêm hiệu ứng khi click (active) */
+.butonphu:active {
+    transform: scale(0.98); /* Hiệu ứng thu nhỏ khi click */
+}
+
+/* Thêm kích thước icon trong nút */
+.butonphu i {
+    margin-right: 5px; /* Khoảng cách giữa icon và chữ */
+    font-size: 18px; /* Kích thước icon */
+}
+
+/* Thanh tìm kiếm mới */
+.search-form {
+    max-width: 700px;
+    border: 2px solid #ff7716;
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: white;
+    margin: 0 auto;
+}
+
+/* Ô nhập */
+.search-input-custom {
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    outline: none;
+    width: 100%;
+}
+
+/* Nút search */
+.search-btn-custom {
+    background-color: #F56400;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Hover hiệu ứng */
+.search-btn-custom:hover {
+    background-color: #d15600;
+}
+
+     /* Khoảng cách dropdown xuống dưới 30px */
+ .dropdown-menu {
+     margin-top: 20px !important;
+     border-radius: 10px;
+     box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+     padding: 10px 0;
+     min-width: 180px;
+ }
+
+/* Kiểu dropdown item */
+.dropdown-item {
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #f5f5f5;
+    color: #F56400;
+}
+
+/* Kiểu nút Categories giữ nguyên hoặc cải tiến nhẹ */
+.butonphu.dropdown-toggle {
+    color: #333;
+    font-size: 14px;
+    padding: 8px 16px;
+    background-color: transparent;
+    border: none;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.butonphu.dropdown-toggle:hover {
+    color: #F56400;
+    background-color: #eee;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+

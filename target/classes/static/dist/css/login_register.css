@@ -1,0 +1,163 @@
+body {
+    width: 100%;
+    background-image: url("/dist/image/vintegewhite.jpg");
+    background-size: cover;  /* Làm cho ảnh nền bao phủ toàn bộ màn hình */
+    background-position: center center;  /* Căn giữa ảnh nền */
+    background-repeat: no-repeat;  /* Không lặp lại ảnh nền */
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.container-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card-box {
+    background-color: white;
+    border-radius: 25px;
+    overflow: hidden;
+    display: flex;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.form-left, .form-right {
+    flex: 1;
+    padding: 90px 40px;
+}
+
+.form-right {
+    background-image: url("/dist/image/2.jpg");
+    background-size: cover;
+    background-position: center;
+    border-radius: 25px;
+    margin: 10px;
+}
+
+h2 {
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+label {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+input.form-control {
+    border-radius: 12px;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+}
+
+.btn-custom {
+    background-color: #fcb034;
+    color: white;
+    font-weight: bold;
+    border-radius: 25px;
+    padding: 10px 30px;
+    border: none;
+    width: 100%;
+}
+
+.btn-custom:hover {
+    background-color: #e69f20;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.form-footer a {
+    color: #555;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/*login*/
+body {
+    width: 100%;
+    background-image: url("/dist/image/vintegewhite.jpg");
+    background-size: cover;  /* Làm cho ảnh nền bao phủ toàn bộ màn hình */
+    background-position: center center;  /* Căn giữa ảnh nền */
+    background-repeat: no-repeat;  /* Không lặp lại ảnh nền */
+    font-family: 'Segoe UI', sans-serif;
+}
+
+
+.container-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card-box {
+    background-color: white;
+    border-radius: 25px;
+    overflow: hidden;
+    display: flex;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.form-left, .form-right {
+    flex: 1;
+    padding: 90px 40px;
+}
+
+.form-right {
+    background-image: url('/dist/image/application.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 25px;
+    margin: 10px;
+}
+
+h2 {
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+label {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+input.form-control {
+    border-radius: 12px;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+}
+
+.btn-custom {
+    background-color: #fcb034;
+    color: white;
+    font-weight: bold;
+    border-radius: 25px;
+    padding: 10px 30px;
+    border: none;
+    width: 100%;
+}
+
+.btn-custom:hover {
+    background-color: #e69f20;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.form-footer a {
+    color: #555;
+    text-decoration: none;
+    font-weight: 500;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome Back</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" th:href="@{/dist/css/login_register.css}" />
+</head>
+<body>
+
+<div class="container-box">
+    <div class="card-box">
+        <div class="form-left">
+            <h2>Welcome back 👋</h2>
+            <p>Please enter your details.</p>
+            <form th:action="@{/user/login}" method="post">
+                <input type="email" class="form-control" name="email" placeholder="Email" required>
+                <input type="password" class="form-control" name="password" placeholder="Password" required>
+                <div class="d-flex justify-content-center mb-3">
+                    <a th:href="@{/user/forgot}" class="text-muted">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn btn-custom">Log in</button>
+            </form>
+            <div class="form-footer">
+                <p>Don’t have an account? <a th:href="@{/user/register}">Sign Up</a></p>
+            </div>
+        </div>
+        <div class="form-right"></div>
+    </div>
+</div>
+
+</body>
+</html>
