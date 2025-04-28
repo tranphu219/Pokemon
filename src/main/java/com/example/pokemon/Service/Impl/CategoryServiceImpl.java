@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
@@ -31,9 +32,11 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public CategoryEntity update(int id) {
-        return categoryRepository.findById(id).get();
+    public CategoryEntity update(CategoryEntity category) {
+        return categoryRepository.save(category); // Spring Data sẽ auto update nếu có ID
     }
+
+
 
     @Override
     public void delete(int id) {

@@ -10,7 +10,7 @@ public interface CategoryService {
     List<CategoryEntity> findAll();
     CategoryEntity findById(int id);
     CategoryEntity save(CategoryEntity category);
-    CategoryEntity update(int id);
+    CategoryEntity update(CategoryEntity category);
     void delete(int id);
     Page<CategoryEntity> findAll(Pageable pageable);
 

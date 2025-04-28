@@ -24,4 +24,8 @@ public interface ProductRepository extends JpaRepository<ProductEntity, Integer>
 
     // Phân trang
     Page<ProductEntity> findAll(Pageable pageable);
+
+    // ... các phương thức hiện có  quantity 50...
+    List<ProductEntity> findTop6ByQuantityLessThanEqualOrderByQuantityAsc(int maxQuantity);
+
 }

@@ -61,4 +61,9 @@ public long countTotalProducts() {
     public Page<ProductEntity> findAll(Pageable pageable) {
         return productRepository.findAll(pageable);
     }
+
+    @Override
+    public List<ProductEntity> findTop6ProductsLowQuantity(int maxQuantity) {
+        return productRepository.findTop6ByQuantityLessThanEqualOrderByQuantityAsc(maxQuantity);
+    }
 }

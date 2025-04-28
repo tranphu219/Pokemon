@@ -20,14 +20,15 @@ public class SecurityConfig {
     @Autowired
     private Custom_Admin_User_DetailsService customUserDetailsService;
 
+
     // Cấu hình bảo mật cho Admin
     @Bean
     @Order(1)
     public SecurityFilterChain adminSecurityFilterChain(HttpSecurity http) throws Exception {
         http
-                .securityMatcher("/admin/**", "/home/**") // Thêm /home vào đây
+                .securityMatcher("/admin/**") // Thêm /home vào đây
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/admin/login", "/home/**").permitAll()
+                        .requestMatchers("/admin/login","/home/**").permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )

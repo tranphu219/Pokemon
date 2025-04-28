@@ -20,4 +20,7 @@ public interface ProductService {
     List<ProductEntity> findProductsLowStock(int threshold);
     Page<ProductEntity> findAll(Pageable pageable); // Thêm dòng này
 
+    // ... các phương thức hiện có lấy 6 quntity nhỏ nhất dưới 50 cái hiển thị ...
+    List<ProductEntity> findTop6ProductsLowQuantity(int maxQuantity);
+
 }

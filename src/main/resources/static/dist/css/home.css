@@ -1,15 +1,14 @@
-
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     background-color: #f9f9f9;
 }
+
 .etsy-logo {
     color: #F56400;
     font-size: 32px;
     font-weight: bold;
     font-family: 'Georgia', serif;
 }
-
 
 /* Tăng kích thước icon */
 .nav-links i {
@@ -29,6 +28,7 @@ body {
     align-items: center;
     padding-right: 10px;
 }
+
 .nav-links:hover {
     color: #F56400;
 }
@@ -40,25 +40,31 @@ body {
 }
 
 #banner {
-    background-image: url("/dist/image/banner.png");
+    background-image: url("/dist/image/Background.png");
     background-size: cover;
     background-position: center;
 }
-#banner2{
+
+#banner2 {
     margin: 30px 0px;
     background-image: url("/dist/image/vintegewhite.jpg");
     background-size: cover;
     background-position: center;
+    overflow: hidden;
 }
-#ok{
+
+#ok {
     color: whitesmoke;
-}#ok1{
+}
+
+#ok1 {
     color: #1e1e1e;
 }
- .imgtext{
-     height: 250px;
-     width: 500px;
- }
+
+.imgtext {
+    height: 250px;
+    width: 500px;
+}
 .category-card {
     border-radius: 8px;
     overflow: hidden;
@@ -67,47 +73,88 @@ body {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     text-align: center;
 }
+
 .category-card:hover {
     transform: translateY(-5px);
 }
+
 .category-img {
     height: 200px;
     object-fit: cover;
     margin: 0 auto;
 }
+
 .category-title {
     font-weight: 600;
     color: #333;
-    margin-top: 10px;
 }
+
 .featured-section {
     text-align: center;
 }
+
 .section-title {
     font-weight: 700;
     margin-bottom: 25px;
     margin-top: 50px;
     margin-bottom: 50px;
     color: #333;
+    color: #2a2a2a;
+}
+
+.section-title1 {
+    margin-top: 70px;
+    text-transform: uppercase;
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: bold;
     color: #F56400;
 }
+
+.section-title2 {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #9a9a9a;
+    margin-bottom: 100px;
+}
+
+.gach {
+    border-bottom: 1px  solid #bcbcbc;
+    width: 20%;
+    margin: auto;
+}
+
+/* Phần product-card đã được cập nhật */
 .product-card {
-    border: none;
+    position: relative;
+    border: 1px solid #eee;
     border-radius: 8px;
     overflow: hidden;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
     margin-bottom: 20px;
     text-align: center;
 }
+
 .product-card:hover {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
 }
+
+.product-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    display: block;
+}
+
 .product-img {
     height: 220px;
     object-fit: cover;
     border-radius: 8px 8px 0 0;
     margin: 0 auto;
 }
+
 .product-title {
     font-size: 14px;
     color: #333;
@@ -116,10 +163,61 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.product-price {
-    font-weight: 600;
-    color: #222;
+
+/* Phần giá sản phẩm đã được cập nhật */
+.product-price-container {
+    margin: 18px 0;
+    border: 1px solid gray;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
+
+.original-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 14px;
+    margin-right: 8px;
+    padding-left: 5px;
+}
+
+.final-price {
+    color: #000000;
+    font-weight: bold;
+    font-size: 18px;
+    padding-right: 5px;
+}
+
+#nameproduct{
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+}
+.sale-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(181, 0, 0, 0.96);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 1;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.product-quantity {
+    font-size: 12px;
+    color: #666;
+}
+
+.low-stock {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
 .footer {
     background-color: #2A2A2A;
     color: white;
@@ -127,11 +225,13 @@ body {
     margin-top: 50px;
     text-align: center;
 }
+
 .footer-title {
     font-weight: 700;
     margin-bottom: 20px;
     font-size: 16px;
 }
+
 .footer-link {
     color: #ddd;
     display: block;
@@ -139,16 +239,19 @@ body {
     text-decoration: none;
     font-size: 14px;
 }
+
 .footer-link:hover {
     color: white;
     text-decoration: underline;
 }
+
 .newsletter-input {
     border-radius: 4px 0 0 4px;
     border: none;
     padding: 10px;
     width: 70%;
 }
+
 .newsletter-btn {
     background-color: #F56400;
     color: white;
@@ -156,16 +259,18 @@ body {
     border-radius: 0 4px 4px 0;
     padding: 10px 15px;
 }
+
 .centered-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.container a{
+
+.container a {
     text-decoration: none;
 }
 
-#icon a{
+#icon a {
     text-decoration: none;
 }
 
@@ -176,37 +281,33 @@ body {
 /* Kiểu dáng mặc định cho nút Categories */
 .butonphu {
     margin-left: 10px;
-    color: #333; /* Màu chữ đen */
-    font-size: 14px; /* Chữ nhỏ hơn */
-    padding: 8px 16px; /* Khoảng cách padding */
-    background-color: transparent; /* Nền trong suốt */
-    border: none; /* Bỏ viền */
-    border-radius: 30px; /* Bo tròn nút */
-    font-weight: 500; /* Độ đậm của chữ */
-    transition: all 0.3s ease; /* Hiệu ứng chuyển tiếp */
+    color: #333;
+    font-size: 14px;
+    padding: 8px 16px;
+    background-color: transparent;
+    border: none;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
 }
 
-/* Thay đổi màu chữ khi hover vào */
 .butonphu:hover {
-    color: #F56400; /* Màu chữ đỏ cam khi hover */
-    background-color: #dddddd; /* Màu nền xám nhạt khi hover */
-    cursor: pointer; /* Con trỏ chuột thay đổi */
+    color: #F56400;
+    background-color: #dddddd;
+    cursor: pointer;
 }
 
-/* Thêm hiệu ứng khi click (active) */
 .butonphu:active {
-    transform: scale(0.98); /* Hiệu ứng thu nhỏ khi click */
+    transform: scale(0.98);
 }
 
-/* Thêm kích thước icon trong nút */
 .butonphu i {
-    margin-right: 5px; /* Khoảng cách giữa icon và chữ */
-    font-size: 18px; /* Kích thước icon */
+    margin-right: 5px;
+    font-size: 18px;
 }
 
-/* Thanh tìm kiếm mới */
 .search-form {
     max-width: 700px;
     border: 2px solid #ff7716;
@@ -216,7 +317,6 @@ body {
     margin: 0 auto;
 }
 
-/* Ô nhập */
 .search-input-custom {
     border: none;
     padding: 10px 20px;
@@ -225,7 +325,6 @@ body {
     width: 100%;
 }
 
-/* Nút search */
 .search-btn-custom {
     background-color: #F56400;
     color: white;
@@ -237,21 +336,18 @@ body {
     transition: background-color 0.3s;
 }
 
-/* Hover hiệu ứng */
 .search-btn-custom:hover {
     background-color: #d15600;
 }
 
-     /* Khoảng cách dropdown xuống dưới 30px */
- .dropdown-menu {
-     margin-top: 20px !important;
-     border-radius: 10px;
-     box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-     padding: 10px 0;
-     min-width: 180px;
- }
+.dropdown-menu {
+    margin-top: 20px !important;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    padding: 10px 0;
+    min-width: 180px;
+}
 
-/* Kiểu dropdown item */
 .dropdown-item {
     padding: 10px 20px;
     font-size: 14px;
@@ -264,7 +360,6 @@ body {
     color: #F56400;
 }
 
-/* Kiểu nút Categories giữ nguyên hoặc cải tiến nhẹ */
 .butonphu.dropdown-toggle {
     color: #333;
     font-size: 14px;
@@ -284,13 +379,45 @@ body {
     cursor: pointer;
 }
 
+.iconhome {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: auto;
+    margin: auto;
+    overflow: hidden;
+}
 
+.iconhome img {
+    max-width: 100%;
+    height: auto;
+    opacity: 70%;
+}
 
+.category-card h5 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: color 0.3s ease;
+    display: block;
+    padding: 10px 0;
+    cursor: pointer;
+    margin-bottom: -10px;
+}
 
+.category-card:hover h5 {
+    color: #F56400;
+}
 
-
-
-
-
+.category-card span {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 10px;
+    display: inline-block;
+    margin-bottom: 30px;
+}
 
 

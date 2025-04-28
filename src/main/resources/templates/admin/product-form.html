@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{admin/layout :: head}">
+    <title>Add Product</title>
+</head>
+<body>
+<div th:replace="~{admin/layout :: layout(pageTitle='Add Product')}">
+    <div th:fragment="content">
+        <div class="container-fluid">
+            <div class="mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="fas fa-plus-circle"></i> Add New Product</h5>
+                </div>
+                <div class="card-body">
+                    <form th:action="@{/admin/products/save}" th:object="${product}" method="post" enctype="multipart/form-data">
+                        <!-- Product Name -->
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" th:field="*{name}" class="form-control" required>
+                        </div>
+
+
+                        <!-- Category Selection -->
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select th:field="*{category}" class="form-control">
+                                <option value="">-- Chọn Danh Mục --</option>
+                                <option th:each="cat : ${categories}" th:value="${cat.categoryId}" th:text="${cat.name}"></option>
+                            </select>
+                        </div>
+
+
+                        <!-- Price -->
+                        <div class="form-group">
+                            <label>Price</label>
+                            <input type="number" th:field="*{price}" class="form-control" min="0"  required>
+                        </div>
+
+                        <!-- Sale -->
+                        <div class="form-group">
+                            <label>Sale</label>
+                            <input type="number" name="sale" class="form-control" min="0"  required>
+                        </div>
+
+
+                        <!-- Quantity -->
+                        <div class="form-group">
+                            <label>Quantity</label>
+                            <input type="number" th:field="*{quantity}" class="form-control" min="0" required>
+                        </div>
+
+
+                        <!-- Size Selection -->
+                        <div class="form-group">
+                            <label>Size</label><br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="sizes" value="0" id="sizeS">
+                                <label class="form-check-label" for="sizeS">S</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="sizes" value="1" id="sizeM">
+                                <label class="form-check-label" for="sizeM">M</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="sizes" value="2" id="sizeL">
+                                <label class="form-check-label" for="sizeL">L</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="sizes" value="3" id="sizeXL">
+                                <label class="form-check-label" for="sizeXL">XL</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="sizes" value="4" id="sizeXXL">
+                                <label class="form-check-label" for="sizeXXL">XXL</label>
+                            </div>
+                        </div>
+
+
+                        <!-- Color Selection -->
+                        <div class="form-group">
+                            <label>Colors</label>
+                            <input type="text" name="colors" class="form-control" placeholder="Enter colors separated by commas, e.g., Red,Blue,Green">
+                        </div>
+
+
+
+                        <!-- Image Upload -->
+                        <div class="form-group">
+                            <label>Product Image</label>
+                            <input type="file" name="imageFile" class="form-control-file">
+                        </div>
+
+
+                        <!-- Description -->
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea th:field="*{description}" class="form-control" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Product</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

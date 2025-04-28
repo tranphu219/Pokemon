@@ -1,3 +1,4 @@
+com/example/pokemon/Model/ProductEntity$SizeEnum.class
 com/example/pokemon/Service/Impl/ProductServiceImpl.class
 com/example/pokemon/Repository/Order_itemsRepository.class
 com/example/pokemon/Model/AdminEntity.class
@@ -19,7 +20,9 @@ com/example/pokemon/Repository/AdminRepository.class
 com/example/pokemon/Service/Impl/UsersServiceImpl.class
 com/example/pokemon/Repository/CategoryRepository.class
 com/example/pokemon/Model/Order_itemsEntity.class
+com/example/pokemon/Model/ProductEntity$ColorEnum.class
 com/example/pokemon/Controller/HomeController.class
+com/example/pokemon/Config/WebConfig.class
 com/example/pokemon/Service/OrdersService.class
 com/example/pokemon/Controller/UserController.class
 com/example/pokemon/Service/Impl/Orders_itemsServiceImpl.class

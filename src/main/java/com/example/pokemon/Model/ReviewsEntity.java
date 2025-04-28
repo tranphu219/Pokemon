@@ -7,8 +7,7 @@ import lombok.Setter;
 import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
+
 @Entity
 @Table(name = "Reviews")
 public class ReviewsEntity {
@@ -37,5 +36,53 @@ public class ReviewsEntity {
     private ProductEntity product;
 
     public ReviewsEntity() {
+    }
+
+    public int getReviewId() {
+        return reviewId;
+    }
+
+    public void setReviewId(int reviewId) {
+        this.reviewId = reviewId;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public UsersEntity getUserEntity() {
+        return userEntity;
+    }
+
+    public void setUserEntity(UsersEntity userEntity) {
+        this.userEntity = userEntity;
+    }
+
+    public ProductEntity getProduct() {
+        return product;
+    }
+
+    public void setProduct(ProductEntity product) {
+        this.product = product;
     }
 }

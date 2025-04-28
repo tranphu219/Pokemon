@@ -4,6 +4,8 @@ import com.example.pokemon.Model.CategoryEntity;
 import com.example.pokemon.Model.OrdersEntity;
 import com.example.pokemon.Model.ProductEntity;
 import com.example.pokemon.Model.UsersEntity;
+import com.example.pokemon.Repository.CategoryRepository;
+import com.example.pokemon.Repository.ProductRepository;
 import com.example.pokemon.Service.CategoryService;
 import com.example.pokemon.Service.OrdersService;
 import com.example.pokemon.Service.ProductService;
@@ -18,21 +20,29 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.Arrays;
+import java.util.List;
+
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
-
+    @Autowired
+    private CategoryRepository categoryRepository;
     @Autowired
     private ProductService productService;
-
     @Autowired
     private UsersService usersService;
-
     @Autowired
     private OrdersService ordersService;
-
     @Autowired
     private CategoryService categoryService;
+    @Autowired
+    private ProductRepository productRepository;
 
     @GetMapping("/login")
     public String login() {
@@ -59,20 +69,52 @@ public class AdminController {
         model.addAttribute("products", productPage.getContent());
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", productPage.getTotalPages());
-        return "admin/products";
+        return "admin/Products";
     }
 
     @GetMapping("/products/add")
     public String showAddProductForm(Model model) {
+        // Retrieve the list of categories from the database
+        List<CategoryEntity> categories = categoryRepository.findAll();
+        model.addAttribute("categories", categories);
         model.addAttribute("product", new ProductEntity());
-        model.addAttribute("categories", categoryService.findAll());
+        model.addAttribute("allColors", Arrays.asList("Red", "Blue", "Green", "Black", "White", "Yellow")); // Danh sách màu có sẵn
         return "admin/product-form";
     }
 
     @PostMapping("/products/save")
     public String saveProduct(@ModelAttribute ProductEntity product,
-                              @RequestParam("imageFile") MultipartFile imageFile) {
-        productService.save(product);
+                              @RequestParam("sizes") List<String> sizes,
+                              @RequestParam("colors") String colors,
+                              @RequestParam("imageFile") MultipartFile imageFile) throws IOException {
+        // Xử lý các size
+        String sizeString = String.join(",", sizes);
+        product.setSize(sizeString);
+        // Xử lý sác màu sắc
+        product.setColor(colors);
+        // Xử lý ảnh
+        if (!imageFile.isEmpty()) {
+            String imageFileName = imageFile.getOriginalFilename();
+            String uploadDir = "uploads/";
+            Path uploadPath = Paths.get(uploadDir);
+            // Kiểm tra và tạo thư mục nếu chưa tồn tại
+            if (!Files.exists(uploadPath)) {
+                Files.createDirectories(uploadPath); // Tự động tạo thư mục nếu nó chưa tồn tại
+            }
+            // Lưu file vào thư mục
+            Path filePath = uploadPath.resolve(imageFileName);
+            Files.copy(imageFile.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
+            // Lưu tên file vào thuộc tính của ProductEntity
+            product.setImage(imageFileName);
+        }
+        // Lưu sản phẩm vào cơ sở dữ liệu
+        productRepository.save(product);
+        return "redirect:/admin/products";
+    }
+
+    @GetMapping("/product/xoa/{id}")
+    public String showProductXOAForm(@PathVariable("id") int id) {
+        productService.delete(id);
         return "redirect:/admin/products";
     }
 
@@ -97,22 +139,27 @@ public class AdminController {
         model.addAttribute("category", new CategoryEntity());
         return "admin/category-form";
     }
-
-    @GetMapping("/categories/edit/{id}")
-    public String showEditCategoryForm(@PathVariable("id") Integer id, Model model) {
-        CategoryEntity category = categoryService.findById(id);
-        model.addAttribute("category", category);
-        return "admin/category-form";
-    }
-
     @PostMapping("/categories/save")
     public String saveCategory(@ModelAttribute CategoryEntity category) {
         categoryService.save(category);
         return "redirect:/admin/categories";
     }
 
+    @GetMapping("/categories/sua/{id}")
+    public String categoriessua(Model model, @PathVariable int id) {
+        CategoryEntity category = categoryService.findById(id);
+        model.addAttribute("category", category);
+        return "admin/category-edit";
+    }
+
+    @PostMapping("/categories/edit")
+    public String updateCategory(@ModelAttribute CategoryEntity category) {
+        categoryService.update(category);
+        return "redirect:/admin/categories";
+    }
+
     @GetMapping("/categories/delete/{id}")
-    public String deleteCategory(@PathVariable("id") Integer id) {
+    public String deleteCategory(@PathVariable("id") int id) {
         categoryService.deleteById(id);
         return "redirect:/admin/categories";
     }
@@ -147,17 +194,17 @@ public class AdminController {
     }
 
     // ========== USER MANAGEMENT ==========
+
+
     @GetMapping("/users")
     public String userManagement(Model model,
                                  @RequestParam(defaultValue = "0") int page,
                                  @RequestParam(defaultValue = "10") int size) {
         Pageable pageable = PageRequest.of(page, size, Sort.by("id").descending());
         Page<UsersEntity> userPage = usersService.findAll(pageable);
-
         model.addAttribute("users", userPage.getContent());
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", userPage.getTotalPages());
         model.addAttribute("pageTitle", "Users");
-        return "admin/users";
+        return "admin/users";    }
     }
-}

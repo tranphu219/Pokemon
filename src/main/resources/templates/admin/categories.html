@@ -8,60 +8,38 @@
   <div th:fragment="content">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
       <h1 class="h2">Category Management</h1>
+      <a th:href="@{/admin/categories/add}">
       <button class="btn btn-primary" data-toggle="modal" data-target="#addCategoryModal">
         <i class="fas fa-plus-circle"></i> New Category
       </button>
+      </a>
     </div>
 
     <div class="table-responsive">
       <table class="table table-hover table-striped">
         <thead class="thead-dark">
         <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Slug</th>
-          <th>Parent Category</th>
-          <th>Status</th>
-          <th>Actions</th>
+          <th style="width: 35%;">ID</th>
+          <th style="width: 35%;">Name</th>
+          <th style="width: 35%;">Actions</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="category : ${categories}">
-          <td th:text="${category.category_id}">1</td>
-          <td th:text="${category.name}">Pokémon Cards</td>
-          <td th:text="${category.slug}">pokemon-cards</td>
-          <td th:text="${category.parent?.name} ?: '-'">-</td>
+          <td th:text="${category.categoryId}">1</td>
+          <td th:text="${category.name}"></td>
           <td>
-            <span th:if="${category.is_active}" class="badge badge-success">Active</span>
-            <span th:unless="${category.is_active}" class="badge badge-secondary">Inactive</span>
-          </td>
-          <td>
-            <a href="#" class="btn btn-sm btn-info" title="Edit">
-              <i class="fas fa-edit"></i>
+            <a th:href="@{/admin/categories/sua/{id}(id=${category.categoryId})}" class="btn btn-sm btn-info" title="Edit">
+              <i class="fas fa-edit"></i> Edit
             </a>
-            <a href="#" class="btn btn-sm btn-danger" title="Delete">
-              <i class="fas fa-trash-alt"></i>
+            <a th:href="@{/admin/categories/delete/{id}(id=${category.categoryId})}" class="btn btn-sm btn-danger" title="Delete">
+              <i class="fas fa-trash-alt"></i> Delete
             </a>
           </td>
         </tr>
         </tbody>
       </table>
     </div>
-
-    <!-- Pagination -->
-    <nav aria-label="Category pagination">
-      <ul class="pagination justify-content-end">
-        <li class="page-item disabled">
-          <a class="page-link" href="#" tabindex="-1">Previous</a>
-        </li>
-        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-          <a class="page-link" href="#">Next</a>
-        </li>
-      </ul>
-    </nav>
   </div>
 </div>
 </body>

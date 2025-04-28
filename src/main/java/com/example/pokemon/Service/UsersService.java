@@ -13,7 +13,9 @@ public interface UsersService {
     UsersEntity save(UsersEntity usersEntity);
     UsersEntity update(int id);
 
-//    them
+    UsersEntity findByemail(String email);
+
+    //    them
     Page<UsersEntity> findAll(Pageable pageable);
     Object getAllUsers();
 }

@@ -5,8 +5,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+
 @Entity
 @Table(name = "Order_items")
 public class Order_itemsEntity {
@@ -28,4 +27,47 @@ public class Order_itemsEntity {
     @ManyToOne
     @JoinColumn(name = "proId", referencedColumnName = "proId")
     private ProductEntity product;
+
+    public Order_itemsEntity() {
+    }
+
+    public int getOrder_item_id() {
+        return order_item_id;
+    }
+
+    public void setOrder_item_id(int order_item_id) {
+        this.order_item_id = order_item_id;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public OrdersEntity getOrdersEntity() {
+        return ordersEntity;
+    }
+
+    public void setOrdersEntity(OrdersEntity ordersEntity) {
+        this.ordersEntity = ordersEntity;
+    }
+
+    public ProductEntity getProduct() {
+        return product;
+    }
+
+    public void setProduct(ProductEntity product) {
+        this.product = product;
+    }
 }

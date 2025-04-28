@@ -30,7 +30,14 @@ public class UserController {
         return "user/register";
     }
     @PostMapping("/registerSave")
-    public String registerSave(@ModelAttribute UsersEntity usersEntity) {
+    public String registerSave(@ModelAttribute UsersEntity usersEntity, Model model) {
+        UsersEntity usersEntity1 = usersService.findByemail(usersEntity.getEmail());
+        if (usersEntity1 != null) {
+            // Gửi thông báo lỗi về lại form đăng ký
+            model.addAttribute("usersEntity", usersEntity);
+            model.addAttribute("error", "Email đã được sử dụng, vui lòng chọn email khác.");
+            return "user/register"; // quay lại trang đăng ký
+        }
         // Gán mật khẩu đã mã hóa
         String encodedPassword = passwordEncoder.encode(usersEntity.getPassword());
         usersEntity.setPassword(encodedPassword);

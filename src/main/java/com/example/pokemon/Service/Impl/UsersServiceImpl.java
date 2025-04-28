@@ -39,7 +39,12 @@ public class UsersServiceImpl implements UsersService {
         return usersRepository.findById(id).get();
     }
 
-//    them
+    @Override
+    public UsersEntity findByemail(String email) {
+        return usersRepository.findByemail(email);
+    }
+
+    //    them
     @Override
     public Page<UsersEntity> findAll(Pageable pageable) {
         return usersRepository.findAll(pageable);
