@@ -10,7 +10,7 @@ public interface ProductService {
     List<ProductEntity> findAll();
     ProductEntity findById(int id);
     ProductEntity save(ProductEntity product);
-    ProductEntity update(int id);
+    ProductEntity update(int id, ProductEntity updatedProduct);
     void delete(int id);
 
 

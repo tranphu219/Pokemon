@@ -54,7 +54,8 @@
                     </td>
                     <td th:text="${product.description}"></td>
                     <td>
-                        <a class="btn btn-sm btn-info" title="Edit">
+                        <a th:href="@{/admin/products/ProUpdate/{id}(id=${product.proId})}"
+                                class="btn btn-sm btn-info" title="Edit">
                             <i class="fas fa-edit"></i> Edit
                         </a>
                         <a th:href="@{/admin/product/xoa/{id}(id=${product.proId})}" class="btn btn-sm btn-danger" title="Delete">

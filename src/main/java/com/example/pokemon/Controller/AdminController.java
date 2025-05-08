@@ -19,14 +19,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/admin")
@@ -117,6 +120,55 @@ public class AdminController {
         productService.delete(id);
         return "redirect:/admin/products";
     }
+
+
+
+    @GetMapping("/products/ProUpdate/{id}")
+    public String productsUp(Model model, @PathVariable int id) {
+        ProductEntity product = productService.findById(id);
+        List<CategoryEntity> categories = categoryRepository.findAll();
+        model.addAttribute("categories", categories);
+        model.addAttribute("product", product);
+        return "admin/ProUpdate";
+    }
+
+    @PostMapping("/products/edit")
+    public String updateProducts(@ModelAttribute ProductEntity productEntity,
+                                 @RequestParam("sizes") List<String> sizes,
+                                 @RequestParam("imageFile") MultipartFile imageFile) throws IOException {
+
+        // Xử lý các size
+        String sizeString = String.join(",", sizes);
+        productEntity.setSize(sizeString);  // Lưu danh sách size thành chuỗi
+
+        // Xử lý ảnh
+        if (!imageFile.isEmpty()) {
+            String imageFileName = imageFile.getOriginalFilename();
+            String uploadDir = "uploads/";
+            Path uploadPath = Paths.get(uploadDir);
+
+            // Kiểm tra và tạo thư mục nếu chưa tồn tại
+            if (!Files.exists(uploadPath)) {
+                Files.createDirectories(uploadPath);
+            }
+
+            // Lưu file vào thư mục
+            Path filePath = uploadPath.resolve(imageFileName);
+            Files.copy(imageFile.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
+
+            // Lưu tên file vào thuộc tính của ProductEntity
+            productEntity.setImage(imageFileName);
+        }
+
+        // Cập nhật thông tin sản phẩm
+        productService.update(productEntity.getProId(), productEntity);
+
+        return "redirect:/admin/products";
+    }
+
+
+//     size and img
+
 
     // ========== CATEGORY MANAGEMENT ==========
 

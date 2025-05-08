@@ -30,9 +30,11 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductEntity update(int id) {
-        return productRepository.findById(id).get();
+    public ProductEntity update(int id, ProductEntity product) {
+            ProductEntity existingProduct = productRepository.findById(id).orElse(null);
+            return productRepository.save(product);
     }
+
 
     @Override
     public void delete(int id) {

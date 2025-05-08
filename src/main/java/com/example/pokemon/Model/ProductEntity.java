@@ -56,7 +56,7 @@ public class ProductEntity {
     public ProductEntity() {
     }
 
-    public double getSale() {
+    public int getSale() {
         return sale;
     }
 
